@@ -200,3 +200,26 @@ raw_locator_generator/
 ## 📝 License
 
 Free to use and modify for your projects.
+
+issue :
+PS C:\Automation\tools\raw_locator_generator> python -m raw_locator_generator.dom_extractor_agent
+<frozen runpy>:128: RuntimeWarning: 'raw_locator_generator.dom_extractor_agent' found in sys.modules after import of package 'raw_locator_generator', but prior to execution of 'raw_locator_generator.dom_extractor_agent'; this may result in unpredictable behaviour
+
+DevTools listening on ws://127.0.0.1:58745/devtools/browser/054b9d63-f6c8-4c91-a84a-1e559a0b55c5
+✓ WebDriver initialized successfully
+============================================================
+DOM ELEMENT EXTRACTOR AGENT - ASSIST MODE
+============================================================
+
+This agent will navigate to your URL and extract all DOM elements.
+Raw scripts will be generated for multiple automation frameworks.
+
+Enter URL to analyze: [18404:23836:1127/151911.151:ERROR:google_apis\gcm\engine\registration_request.cc:292] Registration response error message: DEPRECATED_ENDPOINT
+[18404:23836:1127/151911.158:ERROR:google_apis\gcm\engine\connection_factory_impl.cc:434] Failed to connect to MCS endpoint with error -111
+Created TensorFlow Lite XNNPACK delegate for CPU.
+[18404:23836:1127/151932.059:ERROR:google_apis\gcm\engine\connection_factory_impl.cc:434] Failed to connect to MCS endpoint with error -111
+[18404:23836:1127/151941.080:ERROR:google_apis\gcm\engine\registration_request.cc:292] Registration response error message: DEPRECATED_ENDPOINT
+[18404:23836:1127/152018.268:ERROR:google_apis\gcm\engine\connection_factory_impl.cc:434] Failed to connect to MCS endpoint with error -111
+[18404:23836:1127/152036.209:ERROR:google_apis\gcm\engine\registration_request.cc:292] Registration response error message: DEPRECATED_ENDPOINT
+[18404:23836:1127/152151.059:ERROR:google_apis\gcm\engine\connection_factory_impl.cc:434] Failed to connect to MCS endpoint with error -111
+
