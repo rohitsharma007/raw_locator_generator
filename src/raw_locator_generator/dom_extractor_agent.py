@@ -6,6 +6,8 @@ Assist mode: User provides URL, agent navigates and extracts DOM elements
 
 import sys
 import json
+import os
+from pathlib import Path
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.by import By
@@ -418,41 +420,55 @@ class DOMExtractorAgent:
         """Save extracted elements and generate scripts for all frameworks"""
         timestamp = time.strftime("%Y%m%d_%H%M%S")
         saved_files = []
-        
+
+        # Create organized folder structure
+        output_base = Path("output")
+        folders = {
+            'json_data': output_base / 'json_data',
+            'raw_elements': output_base / 'raw_elements',
+            'selenium': output_base / 'selenium',
+            'playwright': output_base / 'playwright',
+            'puppeteer': output_base / 'puppeteer',
+            'cypress': output_base / 'cypress',
+            'robot_framework': output_base / 'robot_framework'
+        }
+
+        # Create all folders
+        for folder in folders.values():
+            folder.mkdir(parents=True, exist_ok=True)
+
         # Save JSON data
         if output_format == 'json':
-            filename = f"dom_elements_{timestamp}.json"
+            filename = folders['json_data'] / f"dom_elements_{timestamp}.json"
             with open(filename, 'w', encoding='utf-8') as f:
                 json.dump(elements, f, indent=2, ensure_ascii=False)
             print(f"\n✓ Elements saved to: {filename}")
-            saved_files.append(filename)
-        
+            saved_files.append(str(filename))
+
         # Generate scripts for all frameworks
         print("\n→ Generating framework-specific scripts...")
         scripts = self.generate_raw_script(elements, framework='all')
-        
-        # Save each framework script
+
+        # Save each framework script in its respective folder
+        framework_mapping = {
+            'raw_elements': (folders['raw_elements'], f"raw_elements_{timestamp}.txt"),
+            'selenium': (folders['selenium'], f"selenium_script_{timestamp}.py"),
+            'playwright': (folders['playwright'], f"playwright_script_{timestamp}.py"),
+            'puppeteer': (folders['puppeteer'], f"puppeteer_script_{timestamp}.js"),
+            'cypress': (folders['cypress'], f"cypress_script_{timestamp}.js"),
+            'robot_framework': (folders['robot_framework'], f"robot_framework_script_{timestamp}.robot")
+        }
+
         for framework_name, script_content in scripts.items():
-            if framework_name == 'raw_elements':
-                script_filename = f"raw_elements_{timestamp}.txt"
-            elif framework_name == 'selenium':
-                script_filename = f"selenium_script_{timestamp}.py"
-            elif framework_name == 'playwright':
-                script_filename = f"playwright_script_{timestamp}.py"
-            elif framework_name == 'puppeteer':
-                script_filename = f"puppeteer_script_{timestamp}.js"
-            elif framework_name == 'cypress':
-                script_filename = f"cypress_script_{timestamp}.js"
-            elif framework_name == 'robot_framework':
-                script_filename = f"robot_framework_script_{timestamp}.robot"
-            else:
-                continue
-            
-            with open(script_filename, 'w', encoding='utf-8') as f:
-                f.write(script_content)
-            print(f"  ✓ {framework_name.upper()}: {script_filename}")
-            saved_files.append(script_filename)
-        
+            if framework_name in framework_mapping:
+                folder, filename = framework_mapping[framework_name]
+                filepath = folder / filename
+
+                with open(filepath, 'w', encoding='utf-8') as f:
+                    f.write(script_content)
+                print(f"  ✓ {framework_name.upper()}: {filepath}")
+                saved_files.append(str(filepath))
+
         return saved_files
     
     def print_summary(self, elements):

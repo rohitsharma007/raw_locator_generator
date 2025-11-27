@@ -92,17 +92,46 @@ Enter URL to analyze: example.com
 ✓ Found 45 interactive elements
 
 → Generating framework-specific scripts...
-  ✓ RAW_ELEMENTS: raw_elements_20250127_143052.txt
-  ✓ SELENIUM: selenium_script_20250127_143052.py
-  ✓ PLAYWRIGHT: playwright_script_20250127_143052.py
-  ✓ PUPPETEER: puppeteer_script_20250127_143052.js
-  ✓ CYPRESS: cypress_script_20250127_143052.js
-  ✓ ROBOT_FRAMEWORK: robot_framework_script_20250127_143052.robot
+  ✓ RAW_ELEMENTS: output/raw_elements/raw_elements_20250127_143052.txt
+  ✓ SELENIUM: output/selenium/selenium_script_20250127_143052.py
+  ✓ PLAYWRIGHT: output/playwright/playwright_script_20250127_143052.py
+  ✓ PUPPETEER: output/puppeteer/puppeteer_script_20250127_143052.js
+  ✓ CYPRESS: output/cypress/cypress_script_20250127_143052.js
+  ✓ ROBOT_FRAMEWORK: output/robot_framework/robot_framework_script_20250127_143052.robot
 ```
+
+## 📂 Output Folder Structure
+
+All generated files are organized in framework-specific folders for easy access:
+
+```
+output/
+├── json_data/              # JSON exports of all extracted elements
+│   └── dom_elements_*.json
+├── raw_elements/           # Framework-agnostic locators
+│   └── raw_elements_*.txt
+├── selenium/               # Selenium Python scripts
+│   └── selenium_script_*.py
+├── playwright/             # Playwright Python scripts
+│   └── playwright_script_*.py
+├── puppeteer/              # Puppeteer JavaScript scripts
+│   └── puppeteer_script_*.js
+├── cypress/                # Cypress JavaScript scripts
+│   └── cypress_script_*.js
+└── robot_framework/        # Robot Framework scripts
+    └── robot_framework_script_*.robot
+```
+
+**Benefits of organized structure:**
+- ✅ Easy to find scripts for specific frameworks
+- ✅ Clean and professional organization
+- ✅ No clutter in the root directory
+- ✅ Better version control management
+- ✅ Scalable for multiple test runs
 
 ## 📄 Generated Files
 
-The agent generates **7 files** for each URL:
+The agent generates **7 files** for each URL, organized by framework:
 
 ### 1. Raw Element Locators (Framework-Agnostic)
 ```
