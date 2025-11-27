@@ -21,28 +21,59 @@ A Python-based agent that operates in assist mode to navigate to URLs and extrac
 
 ### Prerequisites
 
-1. **Python 3.8+** installed
+1. **Python 3.8+** (including Python 3.11 and 3.12)
 2. **Google Chrome** browser installed
-3. **ChromeDriver** (managed automatically)
+3. **ChromeDriver** (managed automatically by webdriver-manager)
 
 ### Setup
 
+#### Option 1: Install as a Package (Recommended)
+
 ```bash
+# Clone the repository
+git clone https://github.com/rohitsharma007/raw_locator_generator.git
+cd raw_locator_generator
+
+# Install the package
+pip install -e .
+
+# Run the agent using the command
+raw-locator-generator
+```
+
+#### Option 2: Install Dependencies Only
+
+```bash
+# Clone the repository
+git clone https://github.com/rohitsharma007/raw_locator_generator.git
+cd raw_locator_generator
+
 # Install dependencies
 pip install -r requirements.txt
 
-# Run the agent
-python dom_extractor_agent.py
+# Run the agent directly
+python -m raw_locator_generator.dom_extractor_agent
+```
+
+#### Option 3: Install from PyPI (Coming Soon)
+
+```bash
+pip install raw-locator-generator
+raw-locator-generator
 ```
 
 ## 🚀 Usage
 
 ### Basic Usage
 
-Simply run the script and provide a URL:
+Simply run the command and provide a URL:
 
 ```bash
-python dom_extractor_agent.py
+# If installed as package
+raw-locator-generator
+
+# Or run directly
+python -m raw_locator_generator.dom_extractor_agent
 ```
 
 **Example Session:**
@@ -123,7 +154,7 @@ Click Element    ${ELEMENT_1}
 ### Programmatic Usage
 
 ```python
-from dom_extractor_agent import DOMExtractorAgent
+from raw_locator_generator import DOMExtractorAgent
 
 agent = DOMExtractorAgent()
 agent.navigate_to_url("https://example.com")
@@ -137,6 +168,33 @@ all_scripts = agent.generate_raw_script(elements, framework='all')
 
 agent.save_results(elements)
 agent.cleanup()
+```
+
+## 📁 Project Structure
+
+```
+raw_locator_generator/
+├── src/
+│   └── raw_locator_generator/
+│       ├── __init__.py
+│       └── dom_extractor_agent.py
+├── docs/
+│   ├── DOCUMENTATION_INDEX.txt
+│   ├── EXAMPLE_OUTPUT.txt
+│   ├── FRAMEWORK_COMPARISON.md
+│   ├── GETTING_STARTED.txt
+│   ├── QUICK_START.md
+│   ├── START_HERE.txt
+│   └── WORKFLOW_DIAGRAM.txt
+├── examples/
+│   └── (generated output files will appear here)
+├── tests/
+│   └── (test files)
+├── README.md
+├── requirements.txt
+├── setup.py
+├── pyproject.toml
+└── .gitignore
 ```
 
 ## 📝 License

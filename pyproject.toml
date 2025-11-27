@@ -1,0 +1,47 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "raw-locator-generator"
+version = "1.0.0"
+description = "A Python-based agent that extracts DOM elements and generates automation scripts for multiple frameworks"
+readme = "README.md"
+requires-python = ">=3.8"
+license = {text = "MIT"}
+keywords = ["selenium", "playwright", "puppeteer", "cypress", "automation", "testing", "web-scraping", "dom-extraction"]
+authors = [
+  {name = "Raw Locator Generator Team"}
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Topic :: Software Development :: Testing",
+    "Topic :: Software Development :: Quality Assurance",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Operating System :: OS Independent",
+]
+dependencies = [
+    "selenium>=4.15.0",
+    "beautifulsoup4>=4.12.0",
+    "webdriver-manager>=4.0.0",
+    "lxml>=4.9.0",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/rohitsharma007/raw_locator_generator"
+"Bug Reports" = "https://github.com/rohitsharma007/raw_locator_generator/issues"
+"Source" = "https://github.com/rohitsharma007/raw_locator_generator"
+"Documentation" = "https://github.com/rohitsharma007/raw_locator_generator/tree/main/docs"
+
+[project.scripts]
+raw-locator-generator = "raw_locator_generator.dom_extractor_agent:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
