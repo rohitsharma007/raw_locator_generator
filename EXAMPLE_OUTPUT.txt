@@ -1,0 +1,81 @@
+# EXAMPLE: Raw Element Locators Output
+# ======================================
+# This is what the framework-agnostic output looks like
+
+# URL: https://example.com
+# Page Title: Example Domain
+
+# ELEMENT LOCATORS
+# ================
+
+# Element 1: BUTTON
+# Description: Submit Form
+# Tag: button
+ID = 'submit-btn'
+NAME = 'submit'
+CLASS = 'btn btn-primary'
+XPATH = '/html/body/div[1]/form/button[1]'
+CSS = 'button#submit-btn'
+
+# Element 2: LINKS
+# Description: Learn more about our services
+# Tag: a
+ID = 'learn-more-link'
+CLASS = 'nav-link'
+XPATH = '/html/body/header/nav/a[2]'
+CSS = 'a#learn-more-link'
+HREF = 'https://example.com/services'
+
+# Element 3: INPUTS
+# Description: Enter your email
+# Tag: input
+ID = 'email-input'
+NAME = 'email'
+CLASS = 'form-control'
+XPATH = '/html/body/div[1]/form/input[1]'
+CSS = 'input#email-input'
+
+# Element 4: INPUTS
+# Description: Enter your password
+# Tag: input
+ID = 'password-input'
+NAME = 'password'
+CLASS = 'form-control'
+XPATH = '/html/body/div[1]/form/input[2]'
+CSS = 'input#password-input'
+
+# Element 5: BUTTON
+# Description: Cancel
+# Tag: button
+ID = 'cancel-btn'
+CLASS = 'btn btn-secondary'
+XPATH = '/html/body/div[1]/form/button[2]'
+CSS = 'button#cancel-btn'
+
+# HOW TO USE THESE LOCATORS:
+# ===========================
+# 
+# SELENIUM (Python):
+#   driver.find_element(By.ID, 'submit-btn')
+#   driver.find_element(By.XPATH, '/html/body/div[1]/form/button[1]')
+#   driver.find_element(By.CSS_SELECTOR, 'button#submit-btn')
+#
+# PLAYWRIGHT (Python):
+#   page.locator('#submit-btn')
+#   page.locator('xpath=/html/body/div[1]/form/button[1]')
+#   page.locator('button#submit-btn')
+#
+# PUPPETEER (JavaScript):
+#   await page.click('#submit-btn')
+#   await page.$('button#submit-btn')
+#
+# CYPRESS (JavaScript):
+#   cy.get('#submit-btn')
+#   cy.get('button#submit-btn')
+#
+# ROBOT FRAMEWORK:
+#   Click Element    id:submit-btn
+#   Click Element    xpath:/html/body/div[1]/form/button[1]
+#   Click Element    css:button#submit-btn
+#
+# You can copy these locators and use them in ANY automation framework!
