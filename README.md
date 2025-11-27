@@ -52,7 +52,7 @@ cd raw_locator_generator
 pip install -r requirements.txt
 
 # Run the agent directly
-python -m raw_locator_generator.dom_extractor_agent
+python -m raw_locator_generator
 ```
 
 #### Option 3: Install from PyPI (Coming Soon)
@@ -73,7 +73,7 @@ Simply run the command and provide a URL:
 raw-locator-generator
 
 # Or run directly
-python -m raw_locator_generator.dom_extractor_agent
+python -m raw_locator_generator
 ```
 
 **Example Session:**

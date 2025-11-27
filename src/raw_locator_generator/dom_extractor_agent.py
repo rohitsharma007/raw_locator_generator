@@ -28,7 +28,16 @@ class DOMExtractorAgent:
         chrome_options.add_argument('--disable-dev-shm-usage')
         chrome_options.add_argument('--disable-gpu')
         chrome_options.add_argument('--window-size=1920,1080')
-        
+
+        # Suppress DevTools and logging errors
+        chrome_options.add_argument('--log-level=3')
+        chrome_options.add_argument('--silent')
+        chrome_options.add_argument('--disable-logging')
+        chrome_options.add_argument('--disable-background-networking')
+        chrome_options.add_argument('--disable-sync')
+        chrome_options.add_argument('--disable-extensions')
+        chrome_options.add_experimental_option('excludeSwitches', ['enable-logging'])
+
         try:
             self.driver = webdriver.Chrome(options=chrome_options)
             print("✓ WebDriver initialized successfully")
